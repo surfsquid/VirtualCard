@@ -16,6 +16,8 @@ namespace VirtualCard
         private const decimal _minimumExpense = 0.01M;
         private const decimal _maximumExpense = 100000M;
 
+        private readonly object _lockObject = new object();
+
         /// <summary>
         /// Gets the current card balance
         /// </summary>
@@ -64,28 +66,31 @@ namespace VirtualCard
         /// <returns>An instance of <see cref="ITransactionResponse"/> containing information about the transaction</returns>
         public ITransactionResponse WithdrawFunds(string pin, decimal amount)
         {
-            if (amount <= _minimumExpense)
+            lock (_lockObject)
             {
-                throw new ArgumentException($"{nameof(amount)} must exceed minimum expense of {_minimumExpense}");
-            }
+                if (amount <= _minimumExpense)
+                {
+                    throw new ArgumentException($"{nameof(amount)} must exceed minimum expense of {_minimumExpense}");
+                }
 
-            if (amount > _maximumTopUp)
-            {
-                throw new ArgumentException($"{nameof(amount)} must not exceed maximum expense of {_maximumExpense}");
-            }
+                if (amount > _maximumTopUp)
+                {
+                    throw new ArgumentException($"{nameof(amount)} must not exceed maximum expense of {_maximumExpense}");
+                }
 
-            if (pin != _pin)
-            {
-                throw new ArgumentException($"Incorrect PIN supplied");
-            }
+                if (pin != _pin)
+                {
+                    throw new ArgumentException($"Incorrect PIN supplied");
+                }
 
-            if (amount > _currentBalance)
-            {
-                throw new ArgumentException($"Withdrawal amount exceeds current card balance");
-            }
+                if (amount > _currentBalance)
+                {
+                    throw new ArgumentException($"Withdrawal amount exceeds current card balance");
+                }
 
-            _currentBalance -= amount;
-            return _transactionResponseFactory.Create(true, CurrentBalance);
+                _currentBalance -= amount;
+                return _transactionResponseFactory.Create(true, CurrentBalance);
+            }
         }
     }
 }
