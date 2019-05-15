@@ -10,7 +10,7 @@ namespace VirtualCard
     {
         private decimal _currentBalance;
         private readonly ITransactionResponseFactory _transactionResponseFactory;
-        private readonly int _pin;
+        private readonly string _pin;
         private const decimal _minimumTopUp = 0M;
         private const decimal _maximumTopUp = 100M;
         private const decimal _minimumExpense = 0.01M;
@@ -19,7 +19,7 @@ namespace VirtualCard
         /// <summary>
         /// Gets the current card balance
         /// </summary>
-        public decimal CurrentBalance { get { return _currentBalance; } }
+        public decimal CurrentBalance => _currentBalance;
 
         /// <summary>
         /// Instantiates a new instance of the <see cref="VirtualCard"/> class.
@@ -27,7 +27,7 @@ namespace VirtualCard
         /// <param name="balance">The initial card balance</param>
         /// <param name="pin">The card pin</param>
         /// <param name="transactionResponseFactory">The transaction response factory</param>
-        public VirtualCard(decimal balance, int pin, ITransactionResponseFactory transactionResponseFactory)
+        public VirtualCard(decimal balance, string pin, ITransactionResponseFactory transactionResponseFactory)
         {
             _currentBalance = balance;
             _pin = pin;
@@ -62,7 +62,7 @@ namespace VirtualCard
         /// <param name="pin">The personal identification number for the card</param>
         /// <param name="amount">The amount to withdraw</param>
         /// <returns>An instance of <see cref="ITransactionResponse"/> containing information about the transaction</returns>
-        public ITransactionResponse WithdrawFunds(int pin, decimal amount)
+        public ITransactionResponse WithdrawFunds(string pin, decimal amount)
         {
             if (amount <= _minimumExpense)
             {

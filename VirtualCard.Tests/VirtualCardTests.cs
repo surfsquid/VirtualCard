@@ -9,7 +9,7 @@ namespace VirtualCard.Tests
     public class VirtualCardTests
     {
         private const decimal _startingBalance = 100M;
-        private const int _pin = 1001;
+        private const string _pin = "1001";
         private readonly Mock<ITransactionResponseFactory> _mockResponseFactory;
         private VirtualCard _target;
 
@@ -60,9 +60,9 @@ namespace VirtualCard.Tests
         }
 
         [Theory]
-        [InlineData(1234)]
-        [InlineData(8)]
-        public void VirtualCard_GivenInvalidPin_Withdraw_ThrowsException(int invalidPin)
+        [InlineData("1234")]
+        [InlineData("8")]
+        public void VirtualCard_GivenInvalidPin_Withdraw_ThrowsException(string invalidPin)
         {
             Should.Throw<ArgumentException>(() => _target.WithdrawFunds(invalidPin, 100M));
         }
