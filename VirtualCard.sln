@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualCard", "VirtualCard\VirtualCard.csproj", "{2FE0613D-67B7-418A-B785-3F0EEB3EA5CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualCard.Tests", "VirtualCard.Tests\VirtualCard.Tests.csproj", "{0788799F-D3D4-4111-B22F-D45A6AC5927B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FE0613D-67B7-418A-B785-3F0EEB3EA5CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE0613D-67B7-418A-B785-3F0EEB3EA5CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE0613D-67B7-418A-B785-3F0EEB3EA5CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE0613D-67B7-418A-B785-3F0EEB3EA5CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0788799F-D3D4-4111-B22F-D45A6AC5927B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0788799F-D3D4-4111-B22F-D45A6AC5927B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0788799F-D3D4-4111-B22F-D45A6AC5927B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0788799F-D3D4-4111-B22F-D45A6AC5927B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30183FBA-5089-4A76-ABDE-383CEDA1F9DA}
+	EndGlobalSection
+EndGlobal

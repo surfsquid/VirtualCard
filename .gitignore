@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/VirtualCard/v16
+/VirtualCard/bin/Debug/netcoreapp2.2
+/VirtualCard/obj
+/VirtualCard.Tests/obj
+/VirtualCard.Tests/bin/Debug/netcoreapp2.2
